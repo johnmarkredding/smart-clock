@@ -1,0 +1,69 @@
+@import 'minireset';
+@import 'variables';
+
+html {
+	line-height: 1;
+	text-align: center;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+	color: $white;
+}
+#Clock {
+	width: 910px;
+	height: 910px;
+	border: 47px solid $white;
+	border-radius:100%;
+	position: fixed;
+	top: 87px;
+  left: 87px;
+	box-shadow: 0 0 68px $fun-blue, 0 0 68px $fun-blue inset;
+}
+#Clock #ClockFace {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+time {
+	font-weight: 700;
+	font-size: 250px;
+}
+#Meridiem {
+	position: fixed;
+  top: 80%;
+  right: 0;
+	font-size: 100px;
+}
+.night {
+	color: $purple-heart;
+	fill: $purple-heart;
+}
+.day {
+	color: $gorse;
+	fill: $gorse;
+}
+#Weather {
+	font-size: 200px;
+	color: $dusty-gray;
+	position: fixed;
+	top: 208px;
+  right: 140px;
+}
+#Date {
+	text-align: right;
+}
+#Temp {
+	display: block;
+	width: 100%;
+	font-weight: 200;
+}
+#Temp span {
+	vertical-align: super;
+	font-size: 100px;
+	font-weight: 400;
+}
+.icons {
+	margin: 2rem auto;
+	width: 200px;
+	height: 200px;
+}
