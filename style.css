@@ -37,10 +37,58 @@ td, th {
   padding: 0;
   text-align: left; }
 
-html {
-  background-color: #0B1828; }
+@font-face {
+  font-family: 'Weather Icons';
+  src: url("fonts/weathertime.eot");
+  src: url("fonts/weathertime.eot?#iefix") format("embedded-opentype"), url("fonts/weathertime.woff2") format("woff2"), url("fonts/weathertime.woff") format("woff"), url("fonts/weathertime.ttf") format("truetype"), url("fonts/weathertime.svg#weathertimeregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+#Icon {
+  line-height: 1;
+  margin: 2rem auto;
+  width: 200px;
+  height: 200px;
+  color: #ffffff;
+  font-family: 'Weather Icons';
+  font-size: 200px; }
+
+[class="01d"] {
+  content: "A";
+  color: #FFE649; }
+
+[class="02d"], [class="03d"] {
+  content: "C"; }
+
+[class="04d"], [class="04n"] {
+  content: "P"; }
+
+[class="09d"], [class="09n"] {
+  content: "R"; }
+
+[class="10d"] {
+  content: "F"; }
+
+[class="11d"], [class="11n"] {
+  content: "U"; }
+
+[class="13d"], [class="13n"] {
+  content: "W"; }
+
+[class="50d"], [class="50n"] {
+  content: "a"; }
+
+[class="01n"] {
+  content: "I";
+  color: #FFE649; }
+
+[class="02n"], [class="03n"] {
+  content: "J"; }
+
+[class="10n"] {
+  content: "K"; }
 
 html {
+  background-color: #0B1828;
   line-height: 1;
   text-align: center;
   font-family: 'Rubik', sans-serif;
@@ -100,10 +148,5 @@ time {
   vertical-align: super;
   font-size: 100px;
   font-weight: 400; }
-
-.icons {
-  margin: 2rem auto;
-  width: 200px;
-  height: 200px; }
 
 /*# sourceMappingURL=style.css.map */
