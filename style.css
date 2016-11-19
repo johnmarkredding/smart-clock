@@ -52,41 +52,6 @@ td, th {
   font-family: 'Weather Icons';
   font-size: 200px; }
 
-[class="01d"] {
-  content: "A";
-  color: #FFE649; }
-
-[class="02d"], [class="03d"] {
-  content: "C"; }
-
-[class="04d"], [class="04n"] {
-  content: "P"; }
-
-[class="09d"], [class="09n"] {
-  content: "R"; }
-
-[class="10d"] {
-  content: "F"; }
-
-[class="11d"], [class="11n"] {
-  content: "U"; }
-
-[class="13d"], [class="13n"] {
-  content: "W"; }
-
-[class="50d"], [class="50n"] {
-  content: "a"; }
-
-[class="01n"] {
-  content: "I";
-  color: #FFE649; }
-
-[class="02n"], [class="03n"] {
-  content: "J"; }
-
-[class="10n"] {
-  content: "K"; }
-
 html {
   background-color: #0B1828;
   line-height: 1;
@@ -142,7 +107,8 @@ time {
 #Temp {
   display: block;
   width: 100%;
-  font-weight: 200; }
+  font-weight: 200;
+  color: #ffffff; }
 
 #Temp span {
   vertical-align: super;

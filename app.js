@@ -1,7 +1,26 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
-var cityCode = "4628695", apiKey = "d7e5b1a9e766ce5227e7dcdd8c37bf4d", apiURL = "http://api.openweathermap.org/data/2.5/weather?id=" + cityCode + "&appid=" + apiKey + "&units=imperial";
+var cityCode = "4628695", apiKey = "d7e5b1a9e766ce5227e7dcdd8c37bf4d", apiURL = "http://api.openweathermap.org/data/2.5/weather?id=" + cityCode + "&appid=" + apiKey + "&units=imperial", icons = {
+	"01d": "A",
+	"02d": "C",
+	"03d": "C",
+	"04d": "P",
+	"09d": "R",
+	"10d": "F",
+	"11d": "U",
+	"13d": "W",
+	"50d": "a",
+	"01n": "I",
+	"02n": "J",
+	"03n": "J",
+	"04n": "P",
+	"09n": "R",
+	"10n": "K",
+	"11n": "U",
+	"13n": "W",
+	"50n": "a"
+};
 
 function getTime() {
 	'use strict';
@@ -34,12 +53,14 @@ function getDate() {
 function getWeather() {
 	'use strict';
 	$.getJSON(apiURL, function (data) {
-		var weatherData = data, tempDegrees = "error!", iconName, iconContent, icons = {};
+		var weatherData = data, tempDegrees = "error!", iconName, iconContent;
 		
 		tempDegrees = Math.round(weatherData.main.temp);
 		$("#Temp").html(tempDegrees + "<span>°F</span>");
 		
 		
+		iconName = weatherData.weather[0].icon;
+		iconContent = icons[iconName];
 		$("#Icon").html(iconContent);
 	});
 }
