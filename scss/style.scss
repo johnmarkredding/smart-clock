@@ -1,6 +1,5 @@
-@import 'minireset';
+@import 'reset';
 @import 'variables';
-@import 'icons';
 
 html {
 	background-color: $firefly;
@@ -38,11 +37,9 @@ time {
 }
 .night {
 	color: $purple-heart;
-	fill: $purple-heart;
 }
 .day {
 	color: $gorse;
-	fill: $gorse;
 }
 #Weather {
 	font-size: 200px;
@@ -58,10 +55,36 @@ time {
 	display: block;
 	width: 100%;
 	font-weight: 200;
-	color: $white;
+	color: $dusty-gray;
 }
 #Temp span {
 	vertical-align: super;
 	font-size: 100px;
 	font-weight: 400;
+}
+/*#Icon {
+	margin: auto;
+	width: 200px;
+	height: 200px;
+}*/
+.icons {
+	margin: auto;
+	width: 200px;
+	height: 200px;
+}
+
+footer {
+	background-color: #f00;
+	padding: 3vh;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: 20vh;
+}
+#LATitle {
+	font-size: 8vh;
+}
+#LADesc {
+	font-size: 6vh;
 }

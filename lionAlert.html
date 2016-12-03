@@ -15,34 +15,15 @@
 		</article>
 		<article id="Weather">
 			<p id="Date">Error!</p>
-			<figure class="icons">
-				<canvas id="CLOUDY" class="icon" width="200" height="200"></canvas>
-			</figure>
-			<!--img id="Icon" alt="WeatherIcon" src="svg/01d.svg"></img-->
+			<img id="Icon" alt="WeatherIcon" src="svg/01d.svg"></img>
 			<p id="Temp">Error!</p>
 		</article>
 	</main>
+	<footer>
+		<h1 id="LATitle">Hello!</h1>
+		<p id="LADesc">Hi!!</p>
+	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="app.js"></script>
-	<script src="skycons.js"></script>
-	<script>
-		var icons = new Skycons({'color':'#fff'}),
-			list  = [
-				"CLEAR_DAY",
-				"CLEAR_NIGHT",
-				"PARTLY_CLOUDY_DAY",
-				"PARTLY_CLOUDY_NIGHT",
-				"CLOUDY",
-				"RAIN",
-				"SLEET",
-				"SNOW",
-				"WIND",
-				"FOG"
-			], i;
-		for(i = list.length; i--; ) {
-			icons.set(list[i], list[i]);
-		}
-		icons.play();
-</script>
 </body>
 </html>

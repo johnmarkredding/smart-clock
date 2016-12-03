@@ -1,25 +1,26 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
-var cityCode = "4628695", apiKey = "d7e5b1a9e766ce5227e7dcdd8c37bf4d", apiURL = "http://api.openweathermap.org/data/2.5/weather?id=" + cityCode + "&appid=" + apiKey + "&units=imperial", icons = {
-	"01d": "A",
-	"02d": "C",
-	"03d": "C",
-	"04d": "P",
-	"09d": "S",
-	"10d": "F",
-	"11d": "U",
-	"13d": "o",
-	"50d": "R",
-	"01n": "I",
-	"02n": "J",
-	"03n": "J",
-	"04n": "P",
-	"09n": "S",
-	"10n": "K",
-	"11n": "U",
-	"13n": "o",
-	"50n": "R"
+
+var cityCode = "4628695", apiKey = "d7e5b1a9e766ce5227e7dcdd8c37bf4d", apiURL = "http://api.openweathermap.org/data/2.5/weather?id=" + cityCode + "&appid=" + apiKey + "&units=imperial", rssURL = "http://www.getrave.com/rss/FHU/channel1", icons = {
+	"01d": 'CLEAR_DAY',
+	"02d": 'PARTLY_CLOUDY_DAY',
+	"03d": 'CLOUDY',
+	"04d": 'CLOUDY',
+	"09d": 'RAIN',
+	"10d": 'RAIN',
+	"11d": "SLEET",
+	"13d": "SNOW",
+	"50d": "FOG",
+	"01n": 'CLEAR_NIGHT',
+	"02n": 'PARTLY_CLOUDY_NIGHT',
+	"03n": 'CLOUDY',
+	"04n": 'CLOUDY',
+	"09n": 'RAIN',
+	"10n": 'RAIN',
+	"11n": "SLEET",
+	"13n": 'SNOW',
+	"50n": 'FOG'
 };
 
 function getTime() {
@@ -53,15 +54,39 @@ function getDate() {
 function getWeather() {
 	'use strict';
 	$.getJSON(apiURL, function (data) {
-		var weatherData = data, tempDegrees = "error!", iconName, iconContent;
+		var weatherData = data, tempDegrees = "error!", iconID, iconDesc;
 		
 		tempDegrees = Math.round(weatherData.main.temp);
 		$("#Temp").html(tempDegrees + "<span>°F</span>");
 		
-		
-		iconName = weatherData.weather[0].icon;
-		iconContent = icons[iconName];
-		$("#Icon").html(iconContent);
+		iconID = icons[weatherData.weather[0].icon];
+		iconDesc = weatherData.weather[0].description;
+		$('.icon').attr('id', iconID);
+		$('#Icon').attr('alt', iconDesc);
+	});
+}
+
+function getLionAlerts() {
+	'use strict';
+
+	$.ajax({
+		type: 'GET',
+		url: rssURL,
+		dataType: 'xml',
+		error: function () {
+			console.log('Unable to load RSS feed');
+		},
+		success: function (xml) {
+			var $items = $(xml).find('item'), LATitle, LADesc;
+			
+			$items.each(function () {
+				LATitle = $(this).find('title').text();
+				LADesc = $(this).find('description').text();
+				
+				$('#LATitle').text(LATitle);
+				$('#LADesc').text(LADesc);
+			});
+		}
 	});
 }
 
@@ -73,4 +98,5 @@ $(document).ready(function () {
 	
 	getDate();
 	getWeather();
+	getLionAlerts();
 });
