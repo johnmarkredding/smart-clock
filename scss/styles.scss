@@ -43,9 +43,9 @@ time {
 }
 #Weather {
 	font-size: 200px;
-	color: $dusty-gray;
+	color: $white;
 	position: fixed;
-	top: 208px;
+	top: 165px;
   right: 140px;
 }
 #Date {
@@ -53,38 +53,28 @@ time {
 }
 #Temp {
 	display: block;
+	margin-top: 375px;
+	display: block;
 	width: 100%;
 	font-weight: 200;
-	color: $dusty-gray;
 }
 #Temp span {
 	vertical-align: super;
 	font-size: 100px;
 	font-weight: 400;
 }
-/*#Icon {
+.icon-group {
 	margin: auto;
-	width: 200px;
-	height: 200px;
-}*/
-.icons {
-	margin: auto;
-	width: 200px;
-	height: 200px;
 }
-
+.icon-group canvas {
+	display: none;
+	position: absolute;
+	top: 250px;
+	left:125px;
+}
+canvas.visible {
+	display: inline;
+}
 footer {
-	background-color: #f00;
-	padding: 3vh;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100vw;
-	height: 20vh;
-}
-#LATitle {
-	font-size: 8vh;
-}
-#LADesc {
-	font-size: 6vh;
+	display: none;
 }

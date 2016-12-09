@@ -1,0 +1,163 @@
+a, hr {
+  padding: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, hr, menu, nav, section {
+  display: block; }
+
+abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0; }
+
+ins, mark {
+  background-color: #ff9;
+  color: #000; }
+
+body {
+  line-height: 1; }
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:after, blockquote:before, q:after, q:before {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0; }
+
+ins {
+  text-decoration: none; }
+
+mark {
+  font-style: italic;
+  font-weight: 700; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+hr {
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0; }
+
+input, select {
+  vertical-align: middle; }
+
+sup {
+  vertical-align: super; }
+
+sub {
+  vertical-align: sub; }
+
+embed, img, object, video {
+  max-width: 100%;
+  vertical-align: middle;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, :after, :before {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  -o-box-sizing: inherit;
+  box-sizing: inherit; }
+
+html {
+  background-color: #0B2815;
+  line-height: 1;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: #ffffff; }
+
+#Clock {
+  width: 767px;
+  height: 767px;
+  border: 30px solid #ffffff;
+  border-radius: 100%;
+  position: fixed;
+  top: -116px;
+  left: 577px;
+  box-shadow: 0 0 68px #1AB385, 0 0 68px #1AB385 inset; }
+
+#Clock #ClockFace {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+time {
+  font-weight: 700;
+  font-size: 200px; }
+
+#Meridiem {
+  position: fixed;
+  top: 80%;
+  right: 0;
+  font-size: 100px;
+  color: #1AB385; }
+
+#Weather {
+  position: fixed;
+  top: 582px;
+  right: 80px; }
+
+#Date {
+  font-size: 120px;
+  text-align: right; }
+
+canvas.visible {
+  display: inline; }
+
+footer {
+  text-align: left;
+  background-color: #1AB385;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 310px; }
+
+#ClassTitle {
+  display: block;
+  position: fixed;
+  top: 582px;
+  left: 80px;
+  font-weight: 700;
+  font-size: 120px;
+  color: #1AB385; }
+
+#ClassEvents {
+  font-size: 150px;
+  padding: 80px; }
+
+#Temp, .icon-group, #LATitle, #LADesc {
+  display: none; }
+
+/*# sourceMappingURL=classMode.css.map */

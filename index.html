@@ -3,7 +3,7 @@
 <head>
 	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
-	<link href="style.css" type="text/css" rel="stylesheet">
+	<link href="styles.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<main>
@@ -15,34 +15,29 @@
 		</article>
 		<article id="Weather">
 			<p id="Date">Error!</p>
-			<figure class="icons">
-				<canvas id="CLOUDY" class="icon" width="200" height="200"></canvas>
+			<figure class="icon-group">
+				<canvas id="CLEAR_DAY" width="300" height="300"></canvas>
+				<canvas id="CLEAR_NIGHT" width="300" height="300"></canvas>
+				<canvas id="PARTLY_CLOUDY_DAY" width="300" height="300"></canvas>
+				<canvas id="PARTLY_CLOUDY_NIGHT" width="300" height="300"></canvas>
+				<canvas id="CLOUDY" width="300" height="300"></canvas>
+				<canvas id="RAIN" width="300" height="300"></canvas>
+				<canvas id="SLEET" width="300" height="300"></canvas>
+				<canvas id="SNOW" width="300" height="300"></canvas>
+				<canvas id="WIND" width="300" height="300"></canvas>
+				<canvas id="FOG" width="300" height="300"></canvas>
 			</figure>
-			<!--img id="Icon" alt="WeatherIcon" src="svg/01d.svg"></img-->
 			<p id="Temp">Error!</p>
 		</article>
 	</main>
+	<footer>
+		<h1 id="ClassTitle">CIS 267</h1>
+		<p id="ClassEvents">Project #5 – Due Wed.</p>
+		<h1 id="LATitle">LionAlert</h1>
+		<p id="LADesc">Hello!! This is a lionAlert!</p>
+	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="app.js"></script>
 	<script src="skycons.js"></script>
-	<script>
-		var icons = new Skycons({'color':'#fff'}),
-			list  = [
-				"CLEAR_DAY",
-				"CLEAR_NIGHT",
-				"PARTLY_CLOUDY_DAY",
-				"PARTLY_CLOUDY_NIGHT",
-				"CLOUDY",
-				"RAIN",
-				"SLEET",
-				"SNOW",
-				"WIND",
-				"FOG"
-			], i;
-		for(i = list.length; i--; ) {
-			icons.set(list[i], list[i]);
-		}
-		icons.play();
-</script>
 </body>
 </html>
