@@ -57,6 +57,31 @@ function createIcons() {
 	icons.play();
 }
 
+function marquee(a, b) {
+	'use strict';
+	var width = b.width(), start_pos = a.width(), end_pos = -width, time;
+
+	function scroll() {
+		if (b.position().left <= -width) {
+			b.css('left', start_pos);
+			scroll();
+		} else { time = (parseInt(b.position().left, 10) - end_pos) *
+				(10000 / (start_pos - end_pos)); // Increase or decrease speed by changing value 10000
+			b.animate({
+				'left': -width
+			}, time, 'linear', function () {
+				scroll();
+			});
+			}
+	}
+
+	b.css({
+		'width': width,
+		'left': start_pos
+	});
+	scroll(a, b);
+}
+
 function getTime() {
 	'use strict';
 	function startTime() {
@@ -129,7 +154,7 @@ function getLionAlert() {
 
 $(document).ready(function () {
 	'use strict';
-	var modes = ['Normal', 'Lion', 'Class', 'Contrast'], modeURL = '', index = 0;
+	var modes = ['styles', 'lionAlert', 'contrast', 'class'], modeURL = '', index = 0;
 	//----Time---------//
 	setInterval(
 		getTime(),
@@ -153,15 +178,17 @@ $(document).ready(function () {
 		getLionAlert(),
 		60000
 	);
+	//marquee($('footer'), $('#Marquee'));
 	
 	//----Icons--------//
 	createIcons();
 	
 	//----Change-Mode--//
 	$('#NormalMode').attr('disabled', false);
-	$("body").click(function () {
-		modeURL = modes[index];
+	$("time").click(function () {
+		modeURL = modes[index] + '.css';
 		index = (index + 1) % (modes.length);
 		$('link').attr('href', modeURL);
 	});
+
 });

@@ -89,22 +89,23 @@ html {
   box-sizing: inherit; }
 
 html {
-  background-color: #ffffff;
+  background-color: #280B0B;
   line-height: 1;
   text-align: center;
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
-  color: #000000; }
+  color: #ffffff; }
 
 #Clock {
-  width: 1500px;
-  height: 1500px;
-  border: 68px solid #000000;
+  width: 646px;
+  height: 646px;
+  border: 30px solid #ffffff;
   border-radius: 100%;
   position: fixed;
-  top: -168px;
-  left: 212px;
-  box-shadow: 0 0 68px #000000, 0 0 68px #000000 inset; }
+  top: -207px;
+  left: 637px;
+  box-shadow: 0 0 68px #eb2929, 0 0 68px #eb2929 inset;
+  opacity: .7; }
 
 #Clock #ClockFace {
   position: absolute;
@@ -114,15 +115,66 @@ html {
 
 time {
   font-weight: 700;
-  font-size: 400px; }
+  font-size: 175px; }
 
 #Meridiem {
   position: fixed;
   top: 80%;
   right: 0;
-  font-size: 200px; }
+  font-size: 75px;
+  color: #eb2929; }
 
-#Weather, #Temp, .icon-group, footer {
+#Weather {
+  position: fixed;
+  top: 495px;
+  right: 80px; }
+
+#Date {
+  display: block;
+  font-weight: 500;
+  font-size: 120px;
+  color: #ffffff;
+  text-align: right;
+  opacity: .7; }
+
+#Temp {
   display: none; }
 
-/*# sourceMappingURL=contrastMode.css.map */
+.icon-group canvas {
+  display: none; }
+
+#LATitle {
+  position: fixed;
+  top: 495px;
+  left: 80px;
+  display: block;
+  font-weight: 700;
+  font-size: 120px;
+  color: #eb2929;
+  text-align: left; }
+
+#LADesc {
+  text-align: left;
+  font-size: 200px;
+  line-height: 1.5;
+  white-space: nowrap; }
+
+#LATitle {
+  font-weight: 500; }
+
+#ClassTitle, #ClassEvents {
+  display: none; }
+
+footer {
+  box-shadow: 0 0 68px #eb2929;
+  background-color: #eb2929;
+  position: fixed;
+  padding-top: 40px;
+  padding-left: 80px;
+  padding-right: 80px;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 400px; }
+
+/*# sourceMappingURL=lionAlert.css.map */
