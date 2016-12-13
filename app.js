@@ -108,9 +108,9 @@ function getDate() {
 	$('#Date').text(months[m] + ' ' + d);
 }
 
-function getWeather() {
+function getWeather(URL) {
 	'use strict';
-	var returnObj = $.getJSON(apiURL, function (data) {
+	var returnObj = $.getJSON(URL, function (data) {
 		var weatherData = data, tempDegrees = "error!", iconID, iconDesc, sunrise, sunset, today = new Date(), hour = today.getHours();
 		tempDegrees = Math.round(weatherData.main.temp);
 		$("#Temp").html(tempDegrees + "<span>°F</span>");
@@ -152,9 +152,40 @@ function getLionAlert() {
 	});
 }
 
-$(document).ready(function () {
+function getLocation() {
+	'use strict';
+	var location = '', lat, lon;
+	if (navigator.geolocation) {
+  /* geolocation is available */
+		navigator.geolocation.getCurrentPosition(function (position) {
+			lat = position.coords.latitude;
+			lon = position.coords.longitude;
+		});
+	} else {
+  /* geolocation IS NOT available */
+		location = 10;
+	}
+}
+
+function enableModes() {
 	'use strict';
 	var modes = ['styles', 'lionAlert', 'contrast', 'class'], modeURL = '', index = 0;
+	$('#NormalMode').attr('disabled', false);
+	$("time").click(function () {
+		modeURL = modes[index] + '.css';
+		index = (index + 1) % (modes.length);
+		$('link').attr('href', modeURL);
+	});
+}
+
+
+//========================================//
+
+
+$(document).ready(function () {
+	'use strict';
+	var locale = getLocation();
+	
 	//----Time---------//
 	setInterval(
 		getTime(),
@@ -169,7 +200,7 @@ $(document).ready(function () {
 	
 	//----Weather------//
 	setInterval(
-		getWeather(),
+		getWeather(apiURL),
 		600000
 	);
 	
@@ -183,12 +214,6 @@ $(document).ready(function () {
 	//----Icons--------//
 	createIcons();
 	
-	//----Change-Mode--//
-	$('#NormalMode').attr('disabled', false);
-	$("time").click(function () {
-		modeURL = modes[index] + '.css';
-		index = (index + 1) % (modes.length);
-		$('link').attr('href', modeURL);
-	});
-
+	//----ChangeMode---//
+	enableModes();
 });
