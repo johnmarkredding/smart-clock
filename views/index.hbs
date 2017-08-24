@@ -1,6 +1,8 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<p>Date: {{date}}</p>
-<time>Time: {{time}}</time>
-<p>Meridiem: {{meridiem}}</p>
-<script src="/javascripts/skycons.js"></script>
+<article id="clock">
+	<h1><time>{{time}}</time></h1>
+	<abbr id="meridiem">{{meridiem}}</abbr>
+</article>
+<article id="weather">
+	<h2><time>{{date}}</time></h2>
+	<h3>{{temp}}</h3>
+</article>

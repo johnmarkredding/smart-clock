@@ -22,20 +22,7 @@ if (navigator.geolocation) {
 }
 weatherURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + coordinates.lat + '&lon=' + coordinates.lon + '&appid=' + weatherKey + '&units=imperial';
 
-var request = new XMLHttpRequest();
-request.open('GET', weatherURL, true);
-
-request.onload = function() {
-	if (request.status >= 200 && request.status < 400) {
-		// Success!
-		weatherData = JSON.parse(request.responseText);
-	} else {
-		// We reached our target server, but it returned an error.
-		console.log('Reached server with error');
-	}
-};
-request.onerror = function() {
-	// There was a connection error.
-	console.log('No server connection');
-};
-request.send();
+function getDate() {
+	var now = new Date(), d = now.getDate(), m = now.getMonth(), months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	$('#Date').text(months[m] + ' ' + d);
+}
