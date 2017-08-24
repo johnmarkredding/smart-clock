@@ -8,6 +8,6 @@ var weatherURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + coordin
 
 
 function getDate() {
-	var now = new Date(), d = now.getDate(), m = now.getMonth(), months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	$('#Date').text(months[m] + ' ' + d);
+	var now = new Date(), d = now.getDate(), months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], m = months[now.getMonth()];
+	$('#Date').text(m + ' ' + d);
 }
