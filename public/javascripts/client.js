@@ -7,7 +7,14 @@ var weatherURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + coordin
 
 
 
-function getDate() {
-	var now = new Date(), d = now.getDate(), months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], m = months[now.getMonth()];
-	$('#Date').text(m + ' ' + d);
+function getDateTime() {
+	var now = new Date();
+	var d = now.getDate();
+	var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	var mo = monthNames[now.getMonth()];
+	var hr = now.getHours();
+	var min = now.getMinutes();
+	
+	$('#Time').text(hr + ':' + min);
+	$('#Date').text(mo + ' ' + d);
 }

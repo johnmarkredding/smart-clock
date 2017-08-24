@@ -104,21 +104,6 @@ function getWeather(URL) {
 	});
 }
 
-function getLocation() {
-	'use strict';
-	var location = '', lat, lon;
-	if (navigator.geolocation) {
-  /* geolocation is available */
-		navigator.geolocation.getCurrentPosition(function (position) {
-			lat = position.coords.latitude;
-			lon = position.coords.longitude;
-		});
-	} else {
-  /* geolocation IS NOT available */
-		location = '10';
-	}
-}
-
 function enableModes() {
 	'use strict';
 	var modes = ['styles', 'lionAlert', 'contrast', 'class'], modeURL = '', index = 0;
