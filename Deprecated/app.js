@@ -60,7 +60,7 @@ function createIcons() {
 function getTime() {
 	'use strict';
 	function startTime() {
-		var today = new Date(), h = today.getHours(), m = today.getMinutes(), t;
+		var today = new Date(), h = today.getHours(), m = today.getMinutes();
 		if (h < 12) {
 			$('#Meridiem').text('am');
 		} else {
