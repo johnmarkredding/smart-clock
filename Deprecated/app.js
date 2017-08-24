@@ -1,7 +1,7 @@
 /*jslint browser: true*/
-/*global $, jQuery, alert, console, Skycons*/
+/*global $, jQuery, alert, console, Skycons, require, __dirname, module*/
 
-var cityCode = "4628695", apiKey = "d7e5b1a9e766ce5227e7dcdd8c37bf4d", apiURL = "http://api.openweathermap.org/data/2.5/weather?id=" + cityCode + "&appid=" + apiKey + "&units=imperial", rssURL = "http://www.getrave.com/rss/FHU/channel1", iconDict = {
+var cityCode = "4628695", apiKey = "d7e5b1a9e766ce5227e7dcdd8c37bf4d", apiURL = "http://api.openweathermap.org/data/2.5/weather?id=" + cityCode + "&appid=" + apiKey + "&units=imperial", iconDict = {
 	"01d": 'CLEAR_DAY',
 	"02d": 'PARTLY_CLOUDY_DAY',
 	"03d": 'CLOUDY',
@@ -57,31 +57,6 @@ function createIcons() {
 	icons.play();
 }
 
-function marquee(a, b) {
-	'use strict';
-	var width = b.width(), start_pos = a.width(), end_pos = -width, time;
-
-	function scroll() {
-		if (b.position().left <= -width) {
-			b.css('left', start_pos);
-			scroll();
-		} else { time = (parseInt(b.position().left, 10) - end_pos) *
-				(10000 / (start_pos - end_pos)); // Increase or decrease speed by changing value 10000
-			b.animate({
-				'left': -width
-			}, time, 'linear', function () {
-				scroll();
-			});
-			}
-	}
-
-	b.css({
-		'width': width,
-		'left': start_pos
-	});
-	scroll(a, b);
-}
-
 function getTime() {
 	'use strict';
 	function startTime() {
@@ -129,29 +104,6 @@ function getWeather(URL) {
 	});
 }
 
-function getLionAlert() {
-	'use strict';
-	$.ajax({
-		type: 'GET',
-		url: rssURL,
-		dataType: 'xml',
-		error: function () {
-			console.log('Unable to load RSS feed');
-		},
-		success: function (xml) {
-			var $items = $(xml).find('item'), LATitle, LADesc;
-
-			$items.each(function () {
-				LATitle = $(this).find('title').text();
-				LADesc = $(this).find('description').text();
-
-				$('#LATitle').text(LATitle);
-				$('#LADesc').text(LADesc);
-			});
-		}
-	});
-}
-
 function getLocation() {
 	'use strict';
 	var location = '', lat, lon;
@@ -163,7 +115,7 @@ function getLocation() {
 		});
 	} else {
   /* geolocation IS NOT available */
-		location = 10;
+		location = '10';
 	}
 }
 
@@ -178,42 +130,5 @@ function enableModes() {
 	});
 }
 
-
-//========================================//
-
-
-$(document).ready(function () {
-	'use strict';
-	var locale = getLocation();
-	
-	//----Time---------//
-	setInterval(
-		getTime(),
-		500
-	);
-	
-	//----Date---------//	
-	setInterval(
-		getDate(),
-		500
-	);
-	
-	//----Weather------//
-	setInterval(
-		getWeather(apiURL),
-		600000
-	);
-	
-	//----LionAlert----//
-	setInterval(
-		getLionAlert(),
-		60000
-	);
-	//marquee($('footer'), $('#Marquee'));
-	
-	//----Icons--------//
-	createIcons();
-	
-	//----ChangeMode---//
-	enableModes();
-});
+createIcons();
+enableModes();
