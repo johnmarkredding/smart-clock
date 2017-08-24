@@ -1,0 +1,10 @@
+## Regular Functionality
+
+- Time, with dynamic meridiem color.
+- Weather API integration, including weather icons.
+- Date
+
+## Simple Mode
+
+- Time, with meridiem.
+
