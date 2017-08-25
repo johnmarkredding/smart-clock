@@ -1,0 +1,35 @@
+@import 'reset';
+
+html {
+	background-color: white;
+	line-height: 1;
+	text-align: center;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+	color: black;
+}
+
+#clock {
+	font-size: 31.25vmin;
+	border: 6.25vmin black solid;
+	border-radius: 100%;
+	box-shadow: 0 0 8.75vmin black, 0 0 8.75vmin black inset;
+	width: 125vmin;
+	height: 125vmin;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+#time {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+#meridiem {
+	font-size: 50%;
+	font-weight: 500;
+	margin-top: -10%;
+	float: right;
+}

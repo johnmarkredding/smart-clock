@@ -35,24 +35,27 @@ function getWeather(coordinates) {
 
 $(document).ready(function() {
 	//Define mode switch
-	var simple = false;
+	//var simple = true;
+	$('#weather').hide();
+	
+/*
+	
 	$(document).click(function() {
 		simple = !simple;
 		if (simple) {
 			$('#weather').hide();
-			$('body').removeClass('regular');
+			$('#style').attr('href', 'simple.css');
 		} else {
 			$('#weather').show();
-			$('body').addClass('regular');
+			$('#style').attr('href', 'regular.css');
 		}
-		console.log(simple);
 	});
 	
 	//Get Date and Time
 	setInterval(function() {
 		var currentDate = getDate();
 		$('#date').text(currentDate.date);
-		$('#time').text(currentDate.time);
+		$('#time').html('<time>' + currentDate.time + '</time>');
 		$('#meridiem').text(currentDate.meridiem);
 	}, 100);
 
@@ -60,4 +63,6 @@ $(document).ready(function() {
 	setInterval(function() {
 		getWeather({lat: '36.1627', lon: '-86.7816'});
 	}, 2000);
+	
+*/
 });
