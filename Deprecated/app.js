@@ -1,7 +1,8 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert, console, Skycons, require, __dirname, module*/
 
-var cityCode = "4628695", apiKey = "d7e5b1a9e766ce5227e7dcdd8c37bf4d", apiURL = "http://api.openweathermap.org/data/2.5/weather?id=" + cityCode + "&appid=" + apiKey + "&units=imperial", iconDict = {
+var cityCode = "4628695", apiKey = "d7e5b1a9e766ce5227e7dcdd8c37bf4d", apiURL = "http://api.openweathermap.org/data/2.5/weather?id=" + cityCode + "&appid=" + apiKey + "&units=imperial";
+var icons = {
 	"01d": 'CLEAR_DAY',
 	"02d": 'PARTLY_CLOUDY_DAY',
 	"03d": 'CLOUDY',
@@ -57,39 +58,13 @@ function createIcons() {
 	icons.play();
 }
 
-function getTime() {
-	'use strict';
-	function startTime() {
-		var today = new Date(), h = today.getHours(), m = today.getMinutes();
-		if (h < 12) {
-			$('#Meridiem').text('am');
-		} else {
-			$('#Meridiem').text('pm');
-		}
-		h = (h > 12) ? h - 12 : h;
-		h = (h === 0) ? 12 : h;
-		m = (m < 10 ? "0" : "") + m;
-		$('time').text(h + ':' + m);
-		setTimeout(function () {
-			startTime();
-		}, 500);
-	}
-	startTime();
-}
-
-function getDate() {
-	'use strict';
-	var today = new Date(), d = today.getDate(), m = today.getMonth(), months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	$('#Date').text(months[m] + ' ' + d);
-}
-
 function getWeather(URL) {
 	'use strict';
 	var returnObj = $.getJSON(URL, function (data) {
 		var weatherData = data, tempDegrees = "error!", iconID, iconDesc, sunrise, sunset, today = new Date(), hour = today.getHours();
 		tempDegrees = Math.round(weatherData.main.temp);
 		$("#Temp").html(tempDegrees + "<span>°F</span>");
-		iconID = iconDict[weatherData.weather[0].icon];
+		iconID = icons[weatherData.weather[0].icon];
 		iconDesc = weatherData.weather[0].description;
 		$('#' + iconID).addClass('visible');
 		$('#' + iconID).attr('alt', iconDesc);

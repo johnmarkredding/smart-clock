@@ -1,50 +1,55 @@
 /*jslint browser: true*/
-/*global $, jQuery, alert, console, Skycons, require, __dirname, module*/
+/*global $, jQuery, alert, console, Skycons*/
+function getDate() {
+	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	var now = new Date(),
+		 day = now.getDate(),
+		 mo = months[now.getMonth()],
+		 hr = now.getHours(),
+		 min = now.getMinutes(),
+		 meridiem = hr >= 12 ? 'pm' : 'am';
 
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var hbs = require('express-handlebars');
+	//Reformat to common time notation.
+	if (hr > 12) {
+		hr -= 12;
+	} else if (hr === 0) {
+		hr = 12;
+	}
+	min = (min < 10 ? "0" : "") + min;
 
-var index = require('./routes/index');
-var app = express();
+	var time = hr + ':' + min, 
+		 date = mo + ' ' + day;
+	return {date: date, time: time, meridiem: meridiem};
+}
+function getWeather(coordinates) {
+	var weatherAPIKey = 'd7e5b1a9e766ce5227e7dcdd8c37bf4d',
+		 weatherURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + coordinates.lat + '&lon=' + coordinates.lon + '&appid=' + weatherAPIKey + '&units=imperial';
+	
+	$.getJSON(weatherURL, function(data) {
+		var result = {temp: Math.round(data.main.temp), icon: data.weather[0].icon, description: data.weather[0].description};
+		$("#temp").html(result.temp + "<small>°F</small>");
+		//result.icon;
+		//result.description;
+	});
+}
 
-
-// view engine setup
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts'}));
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', index);
-
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+$(document).ready(function() {
+	var simple = true;
+	
+	//Get Date and Time
+	setInterval(function() {
+		var currentDate = getDate();
+		$('#date').text(currentDate.date);
+		$('#time').text(currentDate.time);
+		$('#meridiem').text(currentDate.meridiem);
+	}, 100);
+	
+	if (simple) {
+		
+	} else {
+		//Get Weather
+		setInterval(function() {
+			getWeather({lat: '36.1627', lon: '-86.7816'});
+		}, 2000);
+	}
 });
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-module.exports = app;
