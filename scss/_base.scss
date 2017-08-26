@@ -1,0 +1,34 @@
+@import 'reset';
+
+* {
+	cursor: pointer;
+}
+
+html {
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;  
+	line-height: 1;
+	text-align: center;
+	font-family: 'Rubik', sans-serif;
+}
+
+#clock {
+	font-size: $clock-fs;
+	border: $clock-border black solid;
+	border-radius: 100%;
+	box-shadow: 0 0 $clock-shadow $clock-shadow-color, 0 0 $clock-shadow $clock-shadow-color inset;
+	width: $clock-size + vmin;
+	height: $clock-size + vmin;
+}
+#meridiem {
+	font-size: 50%;
+	font-weight: 400;
+	margin-top: $meridiem-margin-top;
+	float: right;
+}
+sup {
+	font-size: 50%;
+	vertical-align: super;
+}

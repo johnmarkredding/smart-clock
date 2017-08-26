@@ -35,8 +35,8 @@ function getWeather(coordinates) {
 
 $(document).ready(function() {
 	//Define mode switch
-	//var simple = true;
-	$('#weather').hide();
+	//var simple = false;
+	//$('#weather').hide();
 	
 /*
 	
@@ -50,19 +50,17 @@ $(document).ready(function() {
 			$('#style').attr('href', 'regular.css');
 		}
 	});
+
 	
 	//Get Date and Time
 	setInterval(function() {
 		var currentDate = getDate();
 		$('#date').text(currentDate.date);
-		$('#time').html('<time>' + currentDate.time + '</time>');
-		$('#meridiem').text(currentDate.meridiem);
+		$('#time').html('<time>' + currentDate.time + '</time><abbr id="meridiem">' + currentDate.meridiem + '</abbr>');
 	}, 100);
 
 	//Get Weather
 	setInterval(function() {
 		getWeather({lat: '36.1627', lon: '-86.7816'});
-	}, 2000);
-	
-*/
+	}, 2000);*/
 });

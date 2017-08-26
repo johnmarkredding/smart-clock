@@ -1,21 +1,13 @@
-@import 'reset';
-
-html {
-	background-color: white;
-	line-height: 1;
-	text-align: center;
-	font-family: 'Rubik', sans-serif;
-	font-weight: 500;
-	color: black;
-}
+$clock-size: 125;
+@import 'vars';
+@import 'base';
+$clock-shadow-color: black;
 
 #clock {
-	font-size: 31.25vmin;
-	border: 6.25vmin black solid;
+	font-size: $clock-fs;
+	border: $clock-border black solid;
 	border-radius: 100%;
-	box-shadow: 0 0 8.75vmin black, 0 0 8.75vmin black inset;
-	width: 125vmin;
-	height: 125vmin;
+	box-shadow: 0 0 $clock-shadow $clock-shadow-color, 0 0 $clock-shadow $clock-shadow-color inset;
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -26,10 +18,4 @@ html {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-}
-#meridiem {
-	font-size: 50%;
-	font-weight: 500;
-	margin-top: -10%;
-	float: right;
 }

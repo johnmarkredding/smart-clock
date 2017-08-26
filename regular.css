@@ -88,36 +88,90 @@ html {
   -o-box-sizing: inherit;
   box-sizing: inherit; }
 
+* {
+  cursor: pointer; }
+
 html {
-  background-color: white;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
   line-height: 1;
   text-align: center;
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  color: black; }
+  font-family: 'Rubik', sans-serif; }
 
 #clock {
-  font-size: 31.25vmin;
-  border: 6.25vmin black solid;
+  font-size: 71.25vmin;
+  border: 15.675vmin black solid;
   border-radius: 100%;
-  box-shadow: 0 0 8.75vmin black, 0 0 8.75vmin black inset;
-  width: 125vmin;
-  height: 125vmin;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-
-#time {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
+  box-shadow: 0 0 19.95vmin black, 0 0 19.95vmin black inset;
+  width: 285vmin;
+  height: 285vmin; }
 
 #meridiem {
   font-size: 50%;
-  font-weight: 500;
-  margin-top: -10%;
+  font-weight: 400;
+  margin-top: -8%;
   float: right; }
+
+sup {
+  font-size: 50%;
+  vertical-align: super; }
+
+html {
+  background-color: #0B1828;
+  color: white; }
+
+#clock {
+  font-size: 32.0055vmin;
+  border: 6.25vmin white solid;
+  box-shadow: 0 0 19.95vmin #1A5FB3, 0 0 19.95vmin #1A5FB3 inset;
+  width: 285vmin;
+  height: 285vmin;
+  position: fixed;
+  top: -115%;
+  left: 50%;
+  transform: translate(-50%, 0%); }
+
+#time {
+  width: auto;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  #time time {
+    display: block; }
+
+#date {
+  font-size: 18.75vmin;
+  font-weight: 500; }
+
+#temp {
+  font-size: 16.25vmin;
+  font-weight: 400; }
+
+#meridiem {
+  color: #FFE649; }
+
+#weather {
+  display: block;
+  margin: auto;
+  width: 70%;
+  margin-top: 100%; }
+
+/*Desktop Styles
+
+$clock-size: 90;
+$clock-fs: (.25 * $clock-size)+vmin;
+
+#clock {
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	transform: none;
+}*/
 
 /*# sourceMappingURL=regular.css.map */
