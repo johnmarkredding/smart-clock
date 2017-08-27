@@ -1,67 +1,120 @@
-$clock-size: 285;
+@import 'reset';
 
-@import 'vars';
-@import 'base';
+$blue-dark: #0B1828;
+$blue-light: #1A5FB3;
+$yellow-dark: #FFE649;
+$yellow-light: #F8F99C;
+$grey: #999999;
+$clock-size: 70;
+$clock-fs: (.25 * $clock-size)+vmin;
+$clock-shadow: (0.07 * $clock-size)+vmin;
+$clock-border: (.055 * $clock-size)+vmin;
+$meridiem-margin-top: -8%;
 
-$clock-shadow-color: $blue-light;
-$clock-fs: (0.1123 * $clock-size)+vmin;
-$clock-border: 6.25vmin;
-$date-fs: 18.75vmin;
-$temp-fs: 16.25vmin;
+$weather-fs: (.20 * $clock-size)+vmin;
 
-html {
+body {
 	background-color: $blue-dark;
 	color: white;
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 4vmin auto 4vmin auto 4vmin;
+	grid-template-rows: 5vmin auto 5vmin;
+	grid-template-areas:
+		". . . . ."
+		". clock . weather ."
+		". . . . .";
 }
-
 #clock {
 	font-size: $clock-fs;
+	width: $clock-size+vmin;
+	height: $clock-size+vmin;
+	border-radius: 100%;
 	border: $clock-border white solid;
-	box-shadow: 0 0 $clock-shadow $clock-shadow-color, 0 0 $clock-shadow $clock-shadow-color inset;
-	width: $clock-size + vmin;
-	height: $clock-size + vmin;
-	position: fixed;
-	top: -115%;
-	left: 50%;
-	transform: translate(-50%, 0%);
+	box-shadow: 0 0 $clock-shadow $blue-light, 0 0 $clock-shadow $blue-light inset;
+	grid-area: clock;
+	align-self: center;
+	justify-self: center;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas:
+		"time-box";
+
 }
 #time {
-	width: auto;
-	position: absolute;
-	top: 85%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	time {
-		display: block;
-	}
+	grid-area: time-box;
+	display: grid;
+	justify-self: center;
+	align-self: center;
+	grid-template-columns: auto;
+	grid-template-rows: auto 1fr;
+	grid-template-areas:
+		"digits"
+		"meridiem";
 }
-#date {
-	font-size: $date-fs;
-	font-weight: 500;
-}
-#temp {
-	font-size: $temp-fs;
-	font-weight: 400;
+#digits {
+	grid-area: digits;
+	align-self: end;
+	justify-self: center;
 }
 #meridiem {
 	color: $yellow-dark;
+	font-size: 50%;
+	font-weight: 400;
+	grid-area: meridiem;
+	align-self: start;
+	justify-self: end;
+	margin-top: -8%;
 }
 #weather {
-	display: block;
-	margin: auto;
-	width: 70%;
-	margin-top: 100%;
+	font-size: $weather-fs;
+	grid-area: weather;
+	justify-self: center;
+	align-self: stretch;
+	display: grid;
+	grid-template-columns: 1;
+	grid-template-rows: auto auto auto;
+	grid-template-areas:
+		"date"
+		"icon"
+
+		"temp";
+}
+#date {
+	font-weight: 500;
+	grid-area: date;
+	justify-self: stretch;
+	align-self: end;
+}
+#icon {
+	width: auto;
+	height: auto;
+	grid-area: icon;
+	justify-self: center;
+	align-self: center;
+}
+#temp {
+	font-weight: 400;
+	grid-area: temp;
+	justify-self: stretch;
+	align-self: start;
+}
+sup {
+	font-size: 50%;
+	vertical-align: super;
+}
+#icon canvas {
+  display: none;
+  position: absolute;
+  top: 250px;
+  left: 125px;
+}
+canvas.visible {
+	display: inline;
 }
 
-
-/*Desktop Styles
-
-$clock-size: 90;
-$clock-fs: (.25 * $clock-size)+vmin;
-
-#clock {
-	position: absolute;
-	top: 5%;
-	left: 5%;
-	transform: none;
-}*/
+@media (width: 800px) {
+	
+}

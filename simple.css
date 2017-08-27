@@ -1,3 +1,6 @@
+body, html {
+  line-height: 1; }
+
 a, hr {
   padding: 0; }
 
@@ -16,9 +19,6 @@ abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite
 ins, mark {
   background-color: #ff9;
   color: #000; }
-
-body {
-  line-height: 1; }
 
 nav ul {
   list-style: none; }
@@ -80,7 +80,13 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  font-family: Rubik,sans-serif; }
 
 *, :after, :before {
   -webkit-box-sizing: inherit;
@@ -91,45 +97,23 @@ html {
 * {
   cursor: pointer; }
 
-html {
-  -webkit-user-select: none;
-  /* Chrome all / Safari all */
-  -moz-user-select: none;
-  /* Firefox all */
-  -ms-user-select: none;
-  /* IE 10+ */
-  user-select: none;
-  line-height: 1;
-  text-align: center;
-  font-family: 'Rubik', sans-serif; }
-
 #clock {
   font-size: 31.25vmin;
   border: 6.875vmin black solid;
   border-radius: 100%;
   box-shadow: 0 0 8.75vmin black, 0 0 8.75vmin black inset;
   width: 125vmin;
-  height: 125vmin; }
+  height: 125vmin;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 #meridiem {
   font-size: 50%;
   font-weight: 400;
   margin-top: -8%;
   float: right; }
-
-sup {
-  font-size: 50%;
-  vertical-align: super; }
-
-#clock {
-  font-size: 31.25vmin;
-  border: 6.875vmin black solid;
-  border-radius: 100%;
-  box-shadow: 0 0 8.75vmin black, 0 0 8.75vmin black inset;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
 
 #time {
   position: absolute;

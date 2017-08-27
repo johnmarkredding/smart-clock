@@ -1,3 +1,6 @@
+body, html {
+  line-height: 1; }
+
 a, hr {
   padding: 0; }
 
@@ -16,9 +19,6 @@ abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite
 ins, mark {
   background-color: #ff9;
   color: #000; }
-
-body {
-  line-height: 1; }
 
 nav ul {
   list-style: none; }
@@ -80,7 +80,13 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  font-family: Rubik,sans-serif; }
 
 *, :after, :before {
   -webkit-box-sizing: inherit;
@@ -91,87 +97,94 @@ html {
 * {
   cursor: pointer; }
 
-html {
-  -webkit-user-select: none;
-  /* Chrome all / Safari all */
-  -moz-user-select: none;
-  /* Firefox all */
-  -ms-user-select: none;
-  /* IE 10+ */
-  user-select: none;
-  line-height: 1;
-  text-align: center;
-  font-family: 'Rubik', sans-serif; }
+body {
+  background-color: #0B1828;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 4vmin auto 4vmin auto 4vmin;
+  grid-template-rows: 5vmin auto 5vmin;
+  grid-template-areas: ". . . . ." ". clock . weather ." ". . . . ."; }
 
 #clock {
-  font-size: 71.25vmin;
-  border: 15.675vmin black solid;
+  font-size: 17.5vmin;
+  width: 70vmin;
+  height: 70vmin;
   border-radius: 100%;
-  box-shadow: 0 0 19.95vmin black, 0 0 19.95vmin black inset;
-  width: 285vmin;
-  height: 285vmin; }
+  border: 3.85vmin white solid;
+  box-shadow: 0 0 4.9vmin #1A5FB3, 0 0 4.9vmin #1A5FB3 inset;
+  grid-area: clock;
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "time-box"; }
+
+#time {
+  grid-area: time-box;
+  display: grid;
+  justify-self: center;
+  align-self: center;
+  grid-template-columns: auto;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "digits" "meridiem"; }
+
+#digits {
+  grid-area: digits;
+  align-self: end;
+  justify-self: center; }
 
 #meridiem {
+  color: #FFE649;
   font-size: 50%;
   font-weight: 400;
-  margin-top: -8%;
-  float: right; }
+  grid-area: meridiem;
+  align-self: start;
+  justify-self: end;
+  margin-top: -8%; }
+
+#weather {
+  font-size: 14vmin;
+  grid-area: weather;
+  justify-self: center;
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "date" "icon" "temp"; }
+
+#date {
+  font-weight: 500;
+  grid-area: date;
+  justify-self: stretch;
+  align-self: end; }
+
+#icon {
+  width: auto;
+  height: auto;
+  grid-area: icon;
+  justify-self: center;
+  align-self: center; }
+
+#temp {
+  font-weight: 400;
+  grid-area: temp;
+  justify-self: stretch;
+  align-self: start; }
 
 sup {
   font-size: 50%;
   vertical-align: super; }
 
-html {
-  background-color: #0B1828;
-  color: white; }
-
-#clock {
-  font-size: 32.0055vmin;
-  border: 6.25vmin white solid;
-  box-shadow: 0 0 19.95vmin #1A5FB3, 0 0 19.95vmin #1A5FB3 inset;
-  width: 285vmin;
-  height: 285vmin;
-  position: fixed;
-  top: -115%;
-  left: 50%;
-  transform: translate(-50%, 0%); }
-
-#time {
-  width: auto;
+#icon canvas {
+  display: none;
   position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-  #time time {
-    display: block; }
+  top: 250px;
+  left: 125px; }
 
-#date {
-  font-size: 18.75vmin;
-  font-weight: 500; }
-
-#temp {
-  font-size: 16.25vmin;
-  font-weight: 400; }
-
-#meridiem {
-  color: #FFE649; }
-
-#weather {
-  display: block;
-  margin: auto;
-  width: 70%;
-  margin-top: 100%; }
-
-/*Desktop Styles
-
-$clock-size: 90;
-$clock-fs: (.25 * $clock-size)+vmin;
-
-#clock {
-	position: absolute;
-	top: 5%;
-	left: 5%;
-	transform: none;
-}*/
+canvas.visible {
+  display: inline; }
 
 /*# sourceMappingURL=regular.css.map */
