@@ -100,23 +100,21 @@ function createIcons() {
 	}
 	icons.play();
 }
-function main() {
-	createIcons();
-	$('canvas').hide();
+function handleCanvas() {
+	// resize the canvas to fill browser window dynamically
+	window.addEventListener('resize', resizeCanvas, false);
 
-	//Define mode switch
-	var simple = false;
-	
-	$(document).click(function() {
-		simple = !simple;
-		if (simple) {
-			$('#weather').hide();
-			$('#style').attr('href', 'simple.css');
-		} else {
-			$('#style').attr('href', 'regular.css');
-			$('#weather').show();
-		}
-	});
+	function resizeCanvas() {
+		//$('canvas').attr('width', '20vmin');
+		//$('canvas').attr('height', '20vmin');
+		createIcons();
+		$('canvas').css('width', '20vmin');
+		$('canvas').css('height', '20vmin');
+		$('canvas').hide(); 
+	}
+	resizeCanvas();
+}
+function main() {
 	
 	//Get Date and Time
 	setInterval(function() {
@@ -129,6 +127,23 @@ function main() {
 	setInterval(function() {
 		getWeather({lat: '36.1627', lon: '-86.7816'});
 	}, 2000);
+	
+	//Get Icon
+	handleCanvas();
+	
+	//Initialize Mode
+	var simple = false;
+	//Switch mode on click of anything
+	$(document).click(function () {
+		simple = !simple;
+		if (simple) {
+			$('#weather').hide();
+			$('#style').attr('href', 'simple.css');
+		} else {
+			$('#style').attr('href', 'regular.css');
+			$('#weather').show();
+		}
+	});
 }
 
 $(document).ready(main);

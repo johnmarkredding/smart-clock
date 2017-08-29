@@ -106,29 +106,40 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 4vmin auto 4vmin auto 4vmin;
-  grid-template-rows: 5vmin auto 5vmin;
+  grid-template-rows: 25vmin auto 25vmin;
   grid-template-areas: ". . . . ." ". clock . weather ." ". . . . ."; }
 
 #clock {
-  font-size: 17.5vmin;
-  width: 70vmin;
-  height: 70vmin;
+  font-size: 12.5vmin;
   border-radius: 100%;
-  border: 3.85vmin white solid;
-  box-shadow: 0 0 4.9vmin #1A5FB3, 0 0 4.9vmin #1A5FB3 inset;
+  border: 3vmin white solid;
+  box-shadow: 0 0 3.5vmin #1A5FB3, 0 0 3.5vmin #1A5FB3 inset;
   grid-area: clock;
   align-self: center;
   justify-self: center;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "time-box"; }
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  grid-template-areas: "time-box";
+  position: relative;
+  width: 50vmin;
+  height: auto; }
+  #clock:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
 
 #time {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   grid-area: time-box;
-  display: grid;
   justify-self: center;
   align-self: center;
+  display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto 1fr;
   grid-template-areas: "digits" "meridiem"; }
@@ -148,13 +159,13 @@ body {
   margin-top: -8%; }
 
 #weather {
-  font-size: 14vmin;
+  font-size: 12.5vmin;
   grid-area: weather;
   justify-self: center;
   align-self: center;
   display: grid;
   grid-template-columns: 1;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: 12.5vmin 25vmin 12.5vmin;
   grid-template-areas: "date" "icon" "temp"; }
 
 #date {
@@ -164,11 +175,11 @@ body {
   align-self: end; }
 
 #icon {
-  width: auto;
-  height: auto;
   grid-area: icon;
   justify-self: center;
   align-self: center; }
+  #icon canvas {
+    display: block; }
 
 #temp {
   font-weight: 400;
@@ -179,19 +190,5 @@ body {
 sup {
   font-size: 50%;
   vertical-align: super; }
-
-#clock {
-  position: relative;
-  width: 50vmin;
-  height: auto; }
-  #clock:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%; }
-
-#time {
-  position: absolute;
-  width: 100%;
-  height: 100%; }
 
 /*# sourceMappingURL=regular.css.map */
