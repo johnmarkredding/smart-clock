@@ -21,50 +21,51 @@ function getDate() {
 		 date = mo + ' ' + day;
 	return {date: date, time: time, meridiem: meridiem};
 }
-function getWeather(coordinates) {
+function handleData(data) {
 	var icons = {
-		"01d": 'CLEAR_DAY',
-		"02d": 'PARTLY_CLOUDY_DAY',
-		"03d": 'CLOUDY',
-		"04d": 'CLOUDY',
-		"09d": 'RAIN',
-		"10d": 'RAIN',
-		"11d": 'SLEET',
-		"13d": 'SNOW',
-		"50d": 'FOG',
-		"01n": 'CLEAR_NIGHT',
-		"02n": 'PARTLY_CLOUDY_NIGHT',
-		"03n": 'CLOUDY',
-		"04n": 'CLOUDY',
-		"09n": 'RAIN',
-		"10n": 'RAIN',
-		"11n": 'SLEET',
-		"13n": 'SNOW',
-		"50n": 'FOG'
+		'01d': 'CLEAR_DAY',
+		'02d': 'PARTLY_CLOUDY_DAY',
+		'03d': 'CLOUDY',
+		'04d': 'CLOUDY',
+		'09d': 'RAIN',
+		'10d': 'RAIN',
+		'11d': 'SLEET',
+		'13d': 'SNOW',
+		'50d': 'FOG',
+		'01n': 'CLEAR_NIGHT',
+		'02n': 'PARTLY_CLOUDY_NIGHT',
+		'03n': 'CLOUDY',
+		'04n': 'CLOUDY',
+		'09n': 'RAIN',
+		'10n': 'RAIN',
+		'11n': 'SLEET',
+		'13n': 'SNOW',
+		'50n': 'FOG'
 	};
+	var meridiemColor;
+	var currentTime = new Date().getHours();
+	var result = {
+		temp: Math.round(data.main.temp),
+		icon: icons[data.weather[0].icon],
+		description: data.weather[0].description,
+		sunrise: new Date(data.sys.sunrise * 1000),
+		sunset: new Date(data.sys.sunset * 1000)
+	};
+	$("#temp").html(result.temp + "<sup>°F</sup>");
+	$('#' + result.icon).show();
+	$('#' + result.icon).attr('alt', result.description);
+
+	if (currentTime >= result.sunrise.getHours() && currentTime < result.sunset.getHours()) {
+		$('#Meridiem').css('color', '#FFE649');
+	} else {
+		$('#Meridiem').css('color', '#F8F99C');
+	}
+}
+function getWeather(coordinates) {
 	var weatherAPIKey = 'd7e5b1a9e766ce5227e7dcdd8c37bf4d',
 		 weatherURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + coordinates.lat + '&lon=' + coordinates.lon + '&appid=' + weatherAPIKey + '&units=imperial';
 	
-	$.getJSON(weatherURL, function(data) {
-		var meridiemColor;
-		var currentTime = new Date().getHours();
-		var result = {
-			temp: Math.round(data.main.temp),
-			icon: icons[data.weather[0].icon],
-			description: data.weather[0].description,
-			sunrise: new Date(data.sys.sunrise * 1000),
-			sunset: new Date(data.sys.sunset * 1000)
-		};
-		$("#temp").html(result.temp + "<sup>°F</sup>");
-		$('#' + result.icon).show();
-		$('#' + result.icon).attr('alt', result.description);
-		
-		if (currentTime >= result.sunrise.getHours() && currentTime < result.sunset.getHours()) {
-			$('#Meridiem').css('color', '#FFE649');
-		} else {
-			$('#Meridiem').css('color', '#F8F99C');
-		}
-	});
+	$.getJSON(weatherURL, handleData);
 }
 function createIcons() {
 	var icons = new Skycons({
@@ -99,8 +100,7 @@ function createIcons() {
 	}
 	icons.play();
 }
-
-$(document).ready(function() {
+function main() {
 	createIcons();
 	$('canvas').hide();
 
@@ -113,8 +113,8 @@ $(document).ready(function() {
 			$('#weather').hide();
 			$('#style').attr('href', 'simple.css');
 		} else {
-			$('#weather').show();
 			$('#style').attr('href', 'regular.css');
+			$('#weather').show();
 		}
 	});
 	
@@ -129,4 +129,6 @@ $(document).ready(function() {
 	setInterval(function() {
 		getWeather({lat: '36.1627', lon: '-86.7816'});
 	}, 2000);
-});
+}
+
+$(document).ready(main);
