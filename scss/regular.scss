@@ -6,7 +6,8 @@ $yellow-dark: #FFE649;
 $yellow-light: #F8F99C;
 $grey: #999999;
 $clock-size: 50;
-$fs: (.25 * $clock-size)+vmin;
+$clock-fs: (.25 * $clock-size)+vmin;
+$weather-fs: (.20 * $clock-size)+vmin;
 $clock-shadow: (0.07 * $clock-size)+vmin;
 $clock-border: (.06 * $clock-size)+vmin;
 $meridiem-margin-top: -8%;
@@ -27,7 +28,7 @@ body {
 		". . . . .";
 }
 #clock {
-	font-size: $fs;
+	font-size: $clock-fs;
 	border-radius: 100%;
 	border: $clock-border white solid;
 	box-shadow: 0 0 $clock-shadow $blue-light, 0 0 $clock-shadow $blue-light inset;
@@ -81,7 +82,7 @@ body {
 }
 
 #weather {
-	font-size: $fs;
+	font-size: $weather-fs;
 	grid-area: weather;
 	justify-self: center;
 	align-self: center;
@@ -97,23 +98,118 @@ body {
 	font-weight: 500;
 	grid-area: date;
 	justify-self: stretch;
-	align-self: end;
+	align-self: center;
 }
 #icon {
+	margin: 2.5vmin auto;
 	grid-area: icon;
 	justify-self: center;
 	align-self: center;
 	canvas {
 		display: block;
+		width: 20vmin;
+		height: 20vmin;
 	}
 }
 #temp {
 	font-weight: 400;
 	grid-area: temp;
 	justify-self: stretch;
-	align-self: start;
+	align-self: center;
 }
 sup {
 	font-size: 50%;
 	vertical-align: super;
+}
+
+
+@media screen and (max-width: 768px) {
+	body {
+		max-width: none;
+		grid-template-columns: auto auto auto;
+		grid-template-rows: 50% 50%;
+		grid-template-areas:
+			"clock"
+			"weather";
+	}
+	#clock {
+		font-size: $clock-fs;
+		border-radius: 0;
+		border-top: 0;
+		border-left: 0;
+		border-right: 0;
+		align-self: center;
+		justify-self: center;
+		grid-template-columns: 100%;
+		grid-template-rows: 100%;
+		grid-template-areas:
+			"time-box";
+		position: static;
+		top: auto;
+		left: auto;
+		width: 100%;
+		&:after {
+			padding-bottom: 0;
+		}
+	}
+	#time {
+		position: static;
+		width: auto;
+		height: auto;
+		top: none;
+		left: none;
+		grid-area: time-box;
+		justify-self: center;
+		align-self: center;
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-rows: auto 1fr;
+		grid-template-areas:
+			"digits"
+			"meridiem";
+	}
+	#digits {
+		grid-area: digits;
+		align-self: end;
+		justify-self: center;
+	}
+	#meridiem {
+		color: $yellow-dark;
+		font-size: 50%;
+		grid-area: meridiem;
+		align-self: start;
+		justify-self: start;
+		margin-top: -8%;
+	}
+
+	#weather {
+		font-size: $weather-fs;
+		justify-self: center;
+		align-self: center;
+		grid-template-columns: 1;
+		grid-template-rows: 12.5vmin 25vmin 12.5vmin;
+		grid-template-areas:
+			"date"
+			"icon"
+			"temp";
+	}
+	#date {
+		justify-self: stretch;
+		align-self: center;
+	}
+	#icon {
+		margin: 2.5vmin auto;
+		justify-self: center;
+		align-self: center;
+		canvas {
+			width: 20vmin;
+			height: 20vmin;
+		}
+	}
+	#temp {
+		justify-self: stretch;
+		align-self: center;
+	}
+}
+@media screen and (max-width: 430px) {
 }

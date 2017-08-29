@@ -102,17 +102,13 @@ function createIcons() {
 }
 function handleCanvas() {
 	// resize the canvas to fill browser window dynamically
-	window.addEventListener('resize', resizeCanvas, false);
+	window.addEventListener('resize', redrawCanvas, false);
 
-	function resizeCanvas() {
-		//$('canvas').attr('width', '20vmin');
-		//$('canvas').attr('height', '20vmin');
-		createIcons();
-		$('canvas').css('width', '20vmin');
-		$('canvas').css('height', '20vmin');
+	function redrawCanvas() {
 		$('canvas').hide(); 
+		createIcons();
 	}
-	resizeCanvas();
+	redrawCanvas();
 }
 function main() {
 	

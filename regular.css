@@ -159,7 +159,7 @@ body {
   margin-top: -8%; }
 
 #weather {
-  font-size: 12.5vmin;
+  font-size: 10vmin;
   grid-area: weather;
   justify-self: center;
   align-self: center;
@@ -172,23 +172,102 @@ body {
   font-weight: 500;
   grid-area: date;
   justify-self: stretch;
-  align-self: end; }
+  align-self: center; }
 
 #icon {
+  margin: 2.5vmin auto;
   grid-area: icon;
   justify-self: center;
   align-self: center; }
   #icon canvas {
-    display: block; }
+    display: block;
+    width: 20vmin;
+    height: 20vmin; }
 
 #temp {
   font-weight: 400;
   grid-area: temp;
   justify-self: stretch;
-  align-self: start; }
+  align-self: center; }
 
 sup {
   font-size: 50%;
   vertical-align: super; }
+
+@media screen and (max-width: 768px) {
+  body {
+    max-width: none;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "clock" "weather"; }
+
+  #clock {
+    font-size: 12.5vmin;
+    border-radius: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    align-self: center;
+    justify-self: center;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    grid-template-areas: "time-box";
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%; }
+    #clock:after {
+      padding-bottom: 0; }
+
+  #time {
+    position: static;
+    width: auto;
+    height: auto;
+    top: none;
+    left: none;
+    grid-area: time-box;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "digits" "meridiem"; }
+
+  #digits {
+    grid-area: digits;
+    align-self: end;
+    justify-self: center; }
+
+  #meridiem {
+    color: #FFE649;
+    font-size: 50%;
+    grid-area: meridiem;
+    align-self: start;
+    justify-self: start;
+    margin-top: -8%; }
+
+  #weather {
+    font-size: 10vmin;
+    justify-self: center;
+    align-self: center;
+    grid-template-columns: 1;
+    grid-template-rows: 12.5vmin 25vmin 12.5vmin;
+    grid-template-areas: "date" "icon" "temp"; }
+
+  #date {
+    justify-self: stretch;
+    align-self: center; }
+
+  #icon {
+    margin: 2.5vmin auto;
+    justify-self: center;
+    align-self: center; }
+    #icon canvas {
+      width: 20vmin;
+      height: 20vmin; }
+
+  #temp {
+    justify-self: stretch;
+    align-self: center; } }
 
 /*# sourceMappingURL=regular.css.map */
