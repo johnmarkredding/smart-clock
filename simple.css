@@ -108,6 +108,8 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
+  #clock hr {
+    display: none; }
 
 #meridiem {
   font-size: 50%;
