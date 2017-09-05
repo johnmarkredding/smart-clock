@@ -246,8 +246,13 @@ sup {
   body {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "clock" "clock" "." "weather" "weather"; }
+    body hr {
+      background-color: green;
+      border: 4px white solid;
+      box-shadow: 0 0 3.5vmin 2px #1A5FB3; }
 
   #clock {
+    font-size: 20vmin;
     grid-template-rows: 80% auto;
     grid-template-areas: "time-box" "hr"; }
 

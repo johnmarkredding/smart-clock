@@ -14,6 +14,10 @@ $clock-fs-md: (.4 * $clock-size)+vmin;
 $weather-fs-md: (.23 * $clock-size)+vmin;
 $clock-border-md: (.045 * $clock-size)+vmin;
 
+$clock-fs-sm: (.4 * $clock-size)+vmin;
+$weather-fs-sm: (.23 * $clock-size)+vmin;
+$clock-border-sm: (.50 * $clock-size)+vmin;
+
 $clock-shadow: (0.07 * $clock-size)+vmin;
 $clock-border: (.06 * $clock-size)+vmin;
 
@@ -198,12 +202,19 @@ sup { font-size: 50% }
 			"."
 			"weather"
 			"weather";
+		hr {
+			background-color: green;
+			border: 4px white solid;
+			box-shadow: $box-shadow;
+		}
 	}
 	#clock {
+		font-size: $clock-fs-sm;
 		grid-template-rows: 80% auto;
 		grid-template-areas:
 			"time-box"
 			"hr";
+		
 	}
 	#time {
 		align-self: center;
