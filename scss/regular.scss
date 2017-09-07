@@ -5,35 +5,35 @@ $blue-light: #1A5FB3;
 $yellow-dark: #FFE649;
 $yellow-light: #F8F99C;
 $grey: #999999;
-$clock-size: 50;
+$clock-size: 70;
 
 $clock-fs: (.25 * $clock-size)+vmin;
 $weather-fs: (.20 * $clock-size)+vmin;
 
-$clock-fs-md: (.4 * $clock-size)+vmin;
-$weather-fs-md: (.23 * $clock-size)+vmin;
+$clock-fs-md: (.3 * $clock-size)+vmin;
+$weather-fs-md: (.15 * $clock-size)+vmin;
 $clock-border-md: (.045 * $clock-size)+vmin;
 
-$clock-fs-sm: (.4 * $clock-size)+vmin;
-$weather-fs-sm: (.3 * $clock-size)+vmin;
+$clock-fs-sm: (.27 * $clock-size)+vmin;
+$weather-fs-sm: (.22 * $clock-size)+vmin;
 $clock-border-sm: (.50 * $clock-size)+vmin;
 
 $clock-shadow: (0.07 * $clock-size)+vmin;
-$clock-border: (.06 * $clock-size)+vmin;
+$clock-border: (.05 * $clock-size)+vmin;
 
 $box-shadow: 0 0 $clock-shadow 2px $blue-light;
 $box-shadow-inset: $box-shadow, $box-shadow inset;
 
 body {
-	max-width: 150vmin;
+	max-width: 130vmin;
 	margin: auto;
 	background-color: $blue-dark;
 	color: white;
 	width: 100vw;
 	height: 100vh;
 	display: grid;
-	grid-template-columns: 4vmin auto 4vmin auto 4vmin;
-	grid-template-rows: 25vmin auto 25vmin;
+	grid-template-columns: 4vmin auto auto auto 4vmin;
+	grid-template-rows: 15vmin auto 15vmin;
 	grid-template-areas:
 		". . . . ."
 		". clock . weather ."

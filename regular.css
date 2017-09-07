@@ -98,25 +98,25 @@ html {
   cursor: pointer; }
 
 body {
-  max-width: 150vmin;
+  max-width: 130vmin;
   margin: auto;
   background-color: #0B1828;
   color: white;
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 4vmin auto 4vmin auto 4vmin;
-  grid-template-rows: 25vmin auto 25vmin;
+  grid-template-columns: 4vmin auto auto auto 4vmin;
+  grid-template-rows: 15vmin auto 15vmin;
   grid-template-areas: ". . . . ." ". clock . weather ." ". . . . ."; }
 
 sup {
   font-size: 50%; }
 
 #clock {
-  font-size: 12.5vmin;
+  font-size: 17.5vmin;
   border-radius: 100%;
-  border: 3vmin white solid;
-  box-shadow: 0 0 3.5vmin 2px #1A5FB3, 0 0 3.5vmin 2px #1A5FB3 inset;
+  border: 3.5vmin white solid;
+  box-shadow: 0 0 4.9vmin 2px #1A5FB3, 0 0 4.9vmin 2px #1A5FB3 inset;
   grid-area: clock;
   align-self: center;
   justify-self: center;
@@ -125,7 +125,7 @@ sup {
   grid-template-rows: 100%;
   grid-template-areas: "time-box";
   position: relative;
-  width: 50vmin;
+  width: 70vmin;
   height: auto; }
   #clock:after {
     content: "";
@@ -164,7 +164,7 @@ sup {
   margin-top: -8%; }
 
 #weather {
-  font-size: 10vmin;
+  font-size: 14vmin;
   grid-area: weather;
   justify-self: center;
   align-self: center;
@@ -203,7 +203,7 @@ sup {
     grid-template-areas: "clock" "weather"; }
 
   #clock {
-    font-size: 20vmin;
+    font-size: 21vmin;
     box-shadow: none;
     border: 0;
     align-self: stretch;
@@ -214,8 +214,8 @@ sup {
       display: none; }
     #clock hr {
       grid-area: hr;
-      border: 2.25vmin white solid;
-      box-shadow: 0 0 3.5vmin 2px #1A5FB3;
+      border: 3.15vmin white solid;
+      box-shadow: 0 0 4.9vmin 2px #1A5FB3;
       display: block;
       align-self: end;
       margin: 0;
@@ -228,7 +228,7 @@ sup {
     display: block; }
 
   #weather {
-    font-size: 11.5vmin;
+    font-size: 10.5vmin;
     grid-template-columns: 1fr 1fr 1fr auto 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "icon icon . date . temp temp";
@@ -251,10 +251,10 @@ sup {
     body hr {
       background-color: green;
       border: 4px white solid;
-      box-shadow: 0 0 3.5vmin 2px #1A5FB3; }
+      box-shadow: 0 0 4.9vmin 2px #1A5FB3; }
 
   #clock {
-    font-size: 20vmin;
+    font-size: 18.9vmin;
     grid-template-rows: 90% auto;
     grid-template-areas: "time-box" "hr"; }
 
@@ -266,7 +266,7 @@ sup {
     font-size: 45%; }
 
   #weather {
-    font-size: 15vmin;
+    font-size: 15.4vmin;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-row-gap: 6.5vmin;
