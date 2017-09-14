@@ -5,18 +5,22 @@ $blue-light: #1A5FB3;
 $yellow-dark: #FFE649;
 $yellow-light: #F8F99C;
 $grey: #999999;
-$clock-size: 70;
+
+$clock-size: 60;
 
 $clock-fs: (.25 * $clock-size)+vmin;
-$weather-fs: (.20 * $clock-size)+vmin;
+$weather-fs: (.12 * $clock-size)+vmin;
+$icon-size: ((.2 * $clock-size))+vmin;
 
-$clock-fs-md: (.3 * $clock-size)+vmin;
-$weather-fs-md: (.15 * $clock-size)+vmin;
+$clock-fs-md: (.4 * $clock-size)+vmin;
+$weather-fs-md: (.2 * $clock-size)+vmin;
 $clock-border-md: (.045 * $clock-size)+vmin;
+$icon-size-md: $weather-fs-md;
 
-$clock-fs-sm: (.27 * $clock-size)+vmin;
-$weather-fs-sm: (.22 * $clock-size)+vmin;
+$clock-fs-sm: (.38 * $clock-size)+vmin;
+$weather-fs-sm: (.25 * $clock-size)+vmin;
 $clock-border-sm: (.50 * $clock-size)+vmin;
+$icon-size-sm: $weather-fs-sm;
 
 $clock-shadow: (0.07 * $clock-size)+vmin;
 $clock-border: (.05 * $clock-size)+vmin;
@@ -32,7 +36,7 @@ body {
 	width: 100vw;
 	height: 100vh;
 	display: grid;
-	grid-template-columns: 4vmin auto auto auto 4vmin;
+	grid-template-columns: 4vmin auto 8vmin auto 4vmin;
 	grid-template-rows: 15vmin auto 15vmin;
 	grid-template-areas:
 		". . . . ."
@@ -48,7 +52,7 @@ sup { font-size: 50% }
 	box-shadow: $box-shadow-inset;
 	grid-area: clock;
 	align-self: center;
-	justify-self: center;
+	justify-self: end;
 	display: grid;
 	grid-template-columns: 100%;
 	grid-template-rows: 100%;
@@ -89,7 +93,6 @@ sup { font-size: 50% }
 	justify-self: center;
 }
 #meridiem {
-	color: $yellow-dark;
 	font-size: 50%;
 	font-weight: 400;
 	grid-area: meridiem;
@@ -101,11 +104,11 @@ sup { font-size: 50% }
 #weather {
 	font-size: $weather-fs;
 	grid-area: weather;
-	justify-self: center;
+	justify-self: start;
 	align-self: center;
 	display: grid;
 	grid-template-columns: 1;
-	grid-template-rows: 12.5vmin 25vmin 12.5vmin;
+	grid-template-rows: auto 20vmin auto;
 	grid-template-areas:
 		"date"
 		"icon"
@@ -122,13 +125,13 @@ sup { font-size: 50% }
 	grid-area: icon;
 	justify-self: center;
 	align-self: center;
-	canvas {
-		display: block;
-		width: 20vmin;
-		height: 20vmin;
+	img {
+		width: $icon-size;
+		height: $icon-size;
 	}
 }
 #temp {
+	font-size: 90%;
 	font-weight: inherit;
 	grid-area: temp;
 	justify-self: stretch;
@@ -184,9 +187,9 @@ sup { font-size: 50% }
 	#icon {
 		justify-self: end;
 		margin: 0;
-		canvas {
-			width: 15vmin;
-			height: 15vmin;
+		img {
+			width: $icon-size-md;
+			height: $icon-size-md;
 		}
 	}
 	#temp {
@@ -196,7 +199,7 @@ sup { font-size: 50% }
 }
 @media screen and (max-width: 510px) {
 	body {
-		grid-template-rows: 35% 65%;
+		grid-template-rows: 40% 60%;
 		grid-template-areas:
 			"clock"
 			"weather";
@@ -228,6 +231,13 @@ sup { font-size: 50% }
 		grid-template-areas:
 			"date date"
 			"icon temp";
+	}
+	#icon {
+		justify-self: center;
+		img {
+			width: $icon-size-sm;
+			height: $icon-size-sm;
+		}
 	}
 	#temp {
 		font-size: 80%;

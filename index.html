@@ -29,13 +29,13 @@
 	<article id="clock">
 		<h1 id="time">
 			<time id="digits">8:00</time>
-			<abbr id="meridiem" class="day">am</abbr>
+			<abbr id="meridiem">am</abbr>
 		</h1>
 		<hr/>
 	</article>
 	<article id="weather">
-		<h2 id="date"><time>Aug 22</time></h2>
-		<figure id="icon">
+		<h2 id="date"><time></time></h2>
+		<!--figure id="icon">
 			<canvas id="CLEAR_DAY" width="300px" height="300px"></canvas>
 			<canvas id="CLEAR_NIGHT" width="300px" height="300px"></canvas>
 			<canvas id="PARTLY_CLOUDY_DAY" width="300px" height="300px"></canvas>
@@ -46,11 +46,13 @@
 			<canvas id="SNOW" width="300px" height="300px"></canvas>
 			<canvas id="WIND" width="300px" height="300px"></canvas>
 			<canvas id="FOG" width="300px" height="300px"></canvas>
-		</figure>
+		</figure-->
+		<section id="icon">
+			<img>
+		</section>
 		<h3 id="temp">00<sup>°F</sup></h3>
 	</article>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="app.js"></script>
-	<script src="skycons.js"></script>
 </body>
 </html>
