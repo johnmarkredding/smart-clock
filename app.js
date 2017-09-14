@@ -1,12 +1,12 @@
 /*jshint browser: true, esversion: 6*/
-/*global $, jQuery, alert, console, Skycons*/
-function getDate() {
+/*global $*/
+function fetchDate() {
 	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	let now = new Date(),
-		 day = now.getDate(),
-		 mo = months[now.getMonth()],
-		 hr = now.getHours(),
-		 min = now.getMinutes(),
+	var currentTime = new Date(),
+		 day = currentTime.getDate(),
+		 mo = months[currentTime.getMonth()],
+		 hr = currentTime.getHours(),
+		 min = currentTime.getMinutes(),
 		 meridiem = hr >= 12 ? 'pm' : 'am';
 
 	//Reformat to common time notation.
@@ -23,7 +23,7 @@ function getDate() {
 }
 function handleData(data) {
 	const currentTime = new Date().getHours();
-	let icon = $('#icon').find('img');
+	var icon = $('#icon').find('img');
 	const result = {
 		temp: Math.round(data.main.temp),
 		icon: data.weather[0].icon,
@@ -52,7 +52,7 @@ function main() {
 	
 	//Get Date and Time
 	setInterval(function() {
-		var currentDate = getDate();
+		var currentDate = fetchDate();
 		$('#date').text(currentDate.date);
 		$('#time').html('<time>' + currentDate.time + '</time><abbr id="meridiem">' + currentDate.meridiem + '</abbr>');
 	}, 100);
@@ -70,9 +70,9 @@ function main() {
 		simple = !simple;
 		if (simple) {
 			$('#weather').hide();
-			$('#style').attr('href', 'simple.css');
+			$('#style').attr('href', './simple.css');
 		} else {
-			$('#style').attr('href', 'regular.css');
+			$('#style').attr('href', './regular.css');
 			$('#weather').show();
 		}
 	});

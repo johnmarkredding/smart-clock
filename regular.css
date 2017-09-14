@@ -1,1 +1,283 @@
-body,html{line-height:1}a,hr{padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,hr,menu,nav,section{display:block}abbr,address,article,aside,audio,b,blockquote,body,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,ul,var,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:0 0}ins,mark{background-color:#ff9;color:#000}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}a{margin:0;font-size:100%;vertical-align:baseline;background:0 0}ins{text-decoration:none}mark{font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{height:1px;border:0;border-top:1px solid #ccc;margin:1em 0}input,select{vertical-align:middle}sup{vertical-align:super}sub{vertical-align:sub}embed,img,object,video{max-width:100%;vertical-align:middle;display:block;margin-left:auto;margin-right:auto}html{-o-box-sizing:border-box;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-align:center;font-family:Rubik,sans-serif}*,:after,:before{-o-box-sizing:inherit;box-sizing:inherit}*{cursor:pointer}body{max-width:130vm;max-width:130vmin;margin:auto;background-color:#0b1828;color:white;width:100vw;height:100vh;display:-ms-grid;display:grid;-ms-grid-columns:4vm auto 8vm auto 4vm;grid-template-columns:4vm auto 8vm auto 4vm;-ms-grid-columns:4vmin auto 8vmin auto 4vmin;grid-template-columns:4vmin auto 8vmin auto 4vmin;-ms-grid-rows:15vm auto 15vm;grid-template-rows:15vm auto 15vm;-ms-grid-rows:15vmin auto 15vmin;grid-template-rows:15vmin auto 15vmin;grid-template-areas:". . . . ." ". clock . weather ." ". . . . ."}sup{font-size:50%}#clock{font-size:15vm;font-size:15vmin;border-radius:100%;border:3vm white solid;border:3vmin white solid;box-shadow:0 0 4.2vm 2px #1a5fb3,0 0 4.2vm 2px #1a5fb3 inset;box-shadow:0 0 4.2vmin 2px #1a5fb3,0 0 4.2vmin 2px #1a5fb3 inset;grid-area:clock;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;justify-self:end;display:-ms-grid;display:grid;-ms-grid-columns:100%;grid-template-columns:100%;-ms-grid-rows:100%;grid-template-rows:100%;grid-template-areas:"time-box";position:relative;width:60vm;width:60vmin;height:auto}#clock:after{content:"";display:block;padding-bottom:100%}#clock hr{display:none}#time{position:absolute;width:auto;height:auto;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);grid-area:time-box;justify-self:center;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;display:-ms-grid;display:grid;-ms-grid-columns:auto;grid-template-columns:auto;-ms-grid-rows:auto 1fr;grid-template-rows:auto 1fr;grid-template-areas:"digits" "meridiem"}#digits{grid-area:digits;-webkit-align-self:end;-ms-flex-item-align:end;align-self:end;justify-self:center}#meridiem{font-size:50%;font-weight:400;grid-area:meridiem;-webkit-align-self:start;-ms-flex-item-align:start;align-self:start;justify-self:end;margin-top:-8%}#weather{font-size:7.2vm;font-size:7.2vmin;grid-area:weather;justify-self:start;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;display:-ms-grid;display:grid;-ms-grid-columns:1;grid-template-columns:1;-ms-grid-rows:auto 20vm auto;grid-template-rows:auto 20vm auto;-ms-grid-rows:auto 20vmin auto;grid-template-rows:auto 20vmin auto;grid-template-areas:"date" "icon" "temp"}#date{font-weight:500;grid-area:date;justify-self:stretch;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center}#icon{margin:2.5vm auto;margin:2.5vmin auto;grid-area:icon;justify-self:center;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center}#icon img{width:12vm;width:12vmin;height:12vm;height:12vmin}#temp{font-size:90%;font-weight:inherit;grid-area:temp;justify-self:stretch;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center}@media screen and (max-width:768px){body{max-width:none;-ms-grid-columns:auto;grid-template-columns:auto;-ms-grid-rows:50% 50%;grid-template-rows:50% 50%;grid-template-areas:"clock" "weather"}#clock{font-size:24vm;font-size:24vmin;box-shadow:none;border:0;-webkit-align-self:stretch;-ms-flex-item-align:stretch;align-self:stretch;-ms-grid-rows:auto auto;grid-template-rows:auto auto;grid-template-areas:"time-box" "hr";width:100%}#clock:after{display:none}#clock hr{grid-area:hr;border:2.7vm white solid;border:2.7vmin white solid;box-shadow:0 0 4.2vm 2px #1a5fb3;box-shadow:0 0 4.2vmin 2px #1a5fb3;display:block;-webkit-align-self:end;-ms-flex-item-align:end;align-self:end;margin:0;padding:0}#time{position:static;-webkit-transform:none;-ms-transform:none;transform:none;-webkit-align-self:end;-ms-flex-item-align:end;align-self:end;display:block}#weather{font-size:12vm;font-size:12vmin;-ms-grid-columns:1fr 1fr 1fr auto 1fr 1fr 1fr;grid-template-columns:1fr 1fr 1fr auto 1fr 1fr 1fr;-ms-grid-rows:1fr;grid-template-rows:1fr;grid-template-areas:"icon icon . date . temp temp";justify-self:center}#icon{justify-self:end;margin:0}#icon img{width:12vm;width:12vmin;height:12vm;height:12vmin}#temp{justify-self:start;color:#999}}@media screen and (max-width:510px){body{-ms-grid-rows:40% 60%;grid-template-rows:40% 60%;grid-template-areas:"clock" "weather"}body hr{background-color:green;border:4px white solid;box-shadow:0 0 4.2vm 2px #1a5fb3;box-shadow:0 0 4.2vmin 2px #1a5fb3}#clock{font-size:22.8vm;font-size:22.8vmin;-ms-grid-rows:90% auto;grid-template-rows:90% auto;grid-template-areas:"time-box" "hr"}#time{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;display:-ms-grid;display:grid}#meridiem{font-size:45%}#weather{font-size:15vm;font-size:15vmin;-ms-grid-columns:1fr 1fr;grid-template-columns:1fr 1fr;-ms-grid-rows:1fr 1fr;grid-template-rows:1fr 1fr;grid-row-gap:6.5vm;grid-row-gap:6.5vmin;grid-column-gap:6.5vm;grid-column-gap:6.5vmin;grid-template-areas:"date date" "icon temp"}#icon{justify-self:center}#icon img{width:15vm;width:15vmin;height:15vm;height:15vmin}#temp{font-size:80%;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;justify-self:center}}
+body, html {
+  line-height: 1; }
+
+a, hr {
+  padding: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, hr, menu, nav, section {
+  display: block; }
+
+abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0; }
+
+ins, mark {
+  background-color: #ff9;
+  color: #000; }
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:after, blockquote:before, q:after, q:before {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0; }
+
+ins {
+  text-decoration: none; }
+
+mark {
+  font-style: italic;
+  font-weight: 700; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+hr {
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0; }
+
+input, select {
+  vertical-align: middle; }
+
+sup {
+  vertical-align: super; }
+
+sub {
+  vertical-align: sub; }
+
+embed, img, object, video {
+  max-width: 100%;
+  vertical-align: middle;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  font-family: Rubik,sans-serif; }
+
+*, :after, :before {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  -o-box-sizing: inherit;
+  box-sizing: inherit; }
+
+* {
+  cursor: pointer; }
+
+body {
+  max-width: 130vmin;
+  margin: auto;
+  background-color: #0B1828;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 4vmin auto 8vmin auto 4vmin;
+  grid-template-rows: 15vmin auto 15vmin;
+  grid-template-areas: ". . . . ." ". clock . weather ." ". . . . ."; }
+
+sup {
+  font-size: 50%; }
+
+#clock {
+  font-size: 15vmin;
+  border-radius: 100%;
+  border: 3vmin white solid;
+  box-shadow: 0 0 4.2vmin 2px #1A5FB3, 0 0 4.2vmin 2px #1A5FB3 inset;
+  grid-area: clock;
+  align-self: center;
+  justify-self: end;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  grid-template-areas: "time-box";
+  position: relative;
+  width: 60vmin;
+  height: auto; }
+  #clock:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+  #clock hr {
+    display: none;
+    grid-area: hr;
+    height: 19px;
+    background-color: white;
+    box-shadow: 0 0 19px 2px #1A5FB3;
+    align-self: end;
+    margin: 0;
+    padding: 0; }
+
+#time {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  grid-area: time-box;
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "digits" "meridiem"; }
+
+#digits {
+  grid-area: digits;
+  align-self: end;
+  justify-self: center; }
+
+#meridiem {
+  font-size: 50%;
+  font-weight: 400;
+  grid-area: meridiem;
+  align-self: start;
+  justify-self: end;
+  margin-top: -8%; }
+
+#weather {
+  font-size: 7.2vmin;
+  grid-area: weather;
+  justify-self: start;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: auto 20vmin auto;
+  grid-template-areas: "date" "icon" "temp"; }
+
+#date {
+  font-weight: 500;
+  grid-area: date;
+  justify-self: stretch;
+  align-self: center; }
+
+#icon {
+  margin: 2.5vmin auto;
+  grid-area: icon;
+  justify-self: center;
+  align-self: center; }
+  #icon img {
+    width: 12vmin;
+    height: 12vmin; }
+
+#temp {
+  font-size: 90%;
+  font-weight: inherit;
+  grid-area: temp;
+  justify-self: stretch;
+  align-self: center; }
+
+@media screen and (max-width: 768px) {
+  body {
+    max-width: none;
+    grid-template-columns: auto;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "clock" "weather"; }
+
+  #clock {
+    font-size: 24vmin;
+    box-shadow: none;
+    border: 0;
+    align-self: stretch;
+    grid-template-rows: auto auto;
+    grid-template-areas: "time-box" "hr";
+    width: 100%; }
+    #clock:after {
+      display: none; }
+    #clock hr {
+      display: block; }
+
+  #time {
+    position: static;
+    transform: none;
+    align-self: end;
+    display: block; }
+
+  #weather {
+    font-size: 12vmin;
+    grid-template-columns: 1fr 1fr 1fr auto 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "icon icon . date . temp temp";
+    justify-self: center; }
+
+  #icon {
+    justify-self: end;
+    margin: 0; }
+    #icon img {
+      width: 12vmin;
+      height: 12vmin; }
+
+  #temp {
+    justify-self: start;
+    color: #999999; } }
+@media screen and (max-width: 510px) {
+  body {
+    grid-template-rows: 40% 60%;
+    grid-template-areas: "clock" "weather"; }
+
+  #clock {
+    font-size: 22.8vmin;
+    grid-template-rows: 90% auto;
+    grid-template-areas: "time-box" "hr"; }
+
+  #time {
+    align-self: center;
+    display: grid; }
+
+  #meridiem {
+    font-size: 45%; }
+
+  #weather {
+    font-size: 15vmin;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 6.5vmin;
+    grid-column-gap: 6.5vmin;
+    grid-template-areas: "date date" "icon temp"; }
+
+  #icon {
+    justify-self: center; }
+    #icon img {
+      width: 15vmin;
+      height: 15vmin; }
+
+  #temp {
+    font-size: 80%;
+    align-self: center;
+    justify-self: center; } }
+
+/*# sourceMappingURL=regular.css.map */
