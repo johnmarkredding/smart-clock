@@ -1,7 +1,8 @@
 /*jshint browser: true, esversion: 6*/
 /*global $*/
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 function fetchDate() {
-	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	var currentTime = new Date(),
 		 day = currentTime.getDate(),
 		 mo = months[currentTime.getMonth()],
@@ -70,9 +71,11 @@ function main() {
 		simple = !simple;
 		if (simple) {
 			$('#weather').hide();
-			$('#style').attr('href', './simple.css');
+			$('body').removeClass('regular');
+			$('body').addClass('simple');
 		} else {
-			$('#style').attr('href', './regular.css');
+			$('body').addClass('regular');
+			$('body').removeClass('simple');
 			$('#weather').show();
 		}
 	});
