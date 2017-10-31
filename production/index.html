@@ -1,1 +1,46 @@
-<!DOCTYPE html><html lang=en><meta charset=utf-8><meta content="A smart clock for use on large monitors."name=description><meta content="width=device-width,initial-scale=1"name=viewport><title>Smart Clock</title><link href=./regular.css rel=stylesheet id=style><link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700"rel=stylesheet><link href=./favicons/apple-icon-57x57.png rel=apple-touch-icon sizes=57x57><link href=./favicons/apple-icon-60x60.png rel=apple-touch-icon sizes=60x60><link href=./favicons/apple-icon-72x72.png rel=apple-touch-icon sizes=72x72><link href=./favicons/apple-icon-76x76.png rel=apple-touch-icon sizes=76x76><link href=./favicons/apple-icon-114x114.png rel=apple-touch-icon sizes=114x114><link href=./favicons/apple-icon-120x120.png rel=apple-touch-icon sizes=120x120><link href=./favicons/apple-icon-144x144.png rel=apple-touch-icon sizes=144x144><link href=./favicons/apple-icon-152x152.png rel=apple-touch-icon sizes=152x152><link href=./favicons/apple-icon-180x180.png rel=apple-touch-icon sizes=180x180><link href=./favicons/android-icon-192x192.png rel=icon sizes=192x192 type=image/png><link href=./favicons/favicon-32x32.png rel=icon sizes=32x32 type=image/png><link href=./favicons/favicon-96x96.png rel=icon sizes=96x96 type=image/png><link href=./favicons/favicon-16x16.png rel=icon sizes=16x16 type=image/png><link href=./favicons/manifest.json rel=manifest><meta content=#ffffff name=msapplication-TileColor><meta content=./favicons/ms-icon-144x144.png name=msapplication-TileImage><meta content=#ffffff name=theme-color><article id=clock><h1 id=time><time id=digits>8:00</time> <abbr id=meridiem>am</abbr></h1><hr></article><article id=weather><h2 id=date><time></time></h2><section id=icon><img></section><h3 id=temp>00<sup>°F</sup></h3></article><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js></script><script src=./app.js></script>
+<!doctype html>
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="A smart clock for use on large monitors.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Smart Clock</title>
+	<link rel="stylesheet" href="style.css" id="style">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="57x57" href="./favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="./favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+	<link rel="manifest" href="./favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="./favicons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body class="regular">
+	<article id="clock">
+		<h1 id="time">
+			<time id="digits">8:00</time>
+			<abbr id="meridiem">am</abbr>
+		</h1>
+		<hr/>
+	</article>
+	<article id="weather">
+		<h2 id="date"><time></time></h2>
+		<section id="icon">
+			<img>
+		</section>
+		<h3 id="temp">00<sup>°F</sup></h3>
+	</article>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="./app.js"></script>
+</body>
+</html>
