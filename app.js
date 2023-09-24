@@ -44,6 +44,7 @@ function handleData(data) {
 	}
 }
 function getWeather(coordinates) {
+	// Only read access key, no billing.
 	const weatherAPIKey = 'd7e5b1a9e766ce5227e7dcdd8c37bf4d',
 		 weatherURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + coordinates.lat + '&lon=' + coordinates.lon + '&appid=' + weatherAPIKey + '&units=imperial';
 	
@@ -58,7 +59,7 @@ function main() {
 		$('#time').html('<time>' + currentDate.time + '</time><abbr id="meridiem">' + currentDate.meridiem + '</abbr>');
 	}, 100);
 
-	//Get Weather
+	//Get Weather in Henderson TN
 	getWeather({lat: '36.1627', lon: '-86.7816'});
 	setInterval(function() {
 		getWeather({lat: '36.1627', lon: '-86.7816'});
